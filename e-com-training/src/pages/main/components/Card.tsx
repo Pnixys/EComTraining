@@ -2,9 +2,9 @@ import React from 'react'
 
 const Card = (product:any) => {
     return (
-        <div className='rounded-sm bg-purple-900 h-[18rem] w-[15rem] shadow-lg shadow-purple-500 m-10 
+        <div id='card' className='rounded-sm opacity-100 h-[18rem] w-[15rem] shadow-lg shadow-purple-500 m-10 
                     hover:shadow-lime-500 hover:shadow-2xl ease-in-out duration-300
-                    grid justify-items-center'>
+                    grid justify-items-center text-white'>
             {
                 (product.img != null) 
                 ? <img 

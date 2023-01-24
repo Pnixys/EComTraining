@@ -2,7 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --bg-primary-color: rgb(21,0,68);
+    --bg-primary-gradient-color: linear-gradient(90deg, rgba(21,0,68,1) 0%, rgba(16,3,61,1) 0%, rgba(26,26,27,1) 100%);
+
+    --bg-secondary-color: rgb(121, 11, 97);
+    --bg-secondary-gradient-color: linear-gradient(90deg, rgb(175, 31, 144) 0%, rgb(114, 23, 94) 0%, rgb(54, 11, 44) 100%);
+
+    --text-primary-color: rgb(255,255,255);
+}
+
 body {
-    background: rgb(21,0,68);
-    background: linear-gradient(90deg, rgba(21,0,68,1) 0%, rgba(16,3,61,1) 0%, rgba(26,26,27,1) 100%);
+    background: var(--bg-primary-gradient-color);
+    text-decoration-color: var(--text-primary-color);
+}
+
+#card {
+    background: var(--bg-secondary-gradient-color);
+    text-decoration-color: var(--text-primary-color);
 }
