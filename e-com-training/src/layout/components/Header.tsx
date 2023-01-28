@@ -1,18 +1,22 @@
 import React from 'react'
 import { logo } from '../../assets'
+import ReactSwitch from 'react-switch'
 
-const Header = () => {
+type Props = {
+    theme: string,
+    toggleTheme: Function
+}
+
+const Header = ({ theme, toggleTheme }:Props) => {
     return (
-        <div className="grid grid-cols-3 content-center bg-zinc-900 h-16">
+        <div className="grid grid-cols-3 content-center h-16">
             <img
                 src={logo}
                 className="object-scale-down h-14 w-16"/>
             <h1 className=' text-white place-self-center p-2'>
                 Nom du site
             </h1>
-            <button className='text-white justify-self-end mr-2'>
-                Potential menu
-            </button>
+            <ReactSwitch onChange={() => toggleTheme} checked={theme === "theme-dark"}/>
         </div>
     )
 }

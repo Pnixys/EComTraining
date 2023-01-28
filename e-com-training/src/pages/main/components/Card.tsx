@@ -5,7 +5,7 @@ const Card = (product:Product) => {
     return (
         <div id='card' className='rounded-sm opacity-100 h-[18rem] w-[15rem] shadow-lg shadow-purple-500 m-10 
                     hover:shadow-lime-500 hover:shadow-2xl ease-in-out duration-300
-                    grid justify-items-center text-white'>
+                    grid justify-items-center'>
             {
                 (product.image != null) 
                 ? <img 

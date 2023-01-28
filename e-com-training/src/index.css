@@ -3,21 +3,35 @@
 @tailwind utilities;
 
 :root {
-    --bg-primary-color: rgb(21,0,68);
-    --bg-primary-gradient-color: linear-gradient(90deg, rgba(21,0,68,1) 0%, rgba(16,3,61,1) 0%, rgba(26,26,27,1) 100%);
+    --primary-color-light: #ffffff;
+    --primary-color-light-bis: #dacceb;
+    --primary-color-dark: #6f36ba;
+    --primary-color-dark-bis: #571c87;
 
-    --bg-secondary-color: rgb(121, 11, 97);
-    --bg-secondary-gradient-color: linear-gradient(90deg, rgb(175, 31, 144) 0%, rgb(114, 23, 94) 0%, rgb(54, 11, 44) 100%);
+    --secondary-color-light: #6f36ba;
+    --secondary-color-light-bis: #571c87;
+    --secondary-color-dark: #ffffff;
+    --secondary-color-dark-bis: #dacceb;
 
-    --text-primary-color: rgb(255,255,255);
+    --third-color: #fc850d;
 }
 
-body {
-    background: var(--bg-primary-gradient-color);
-    text-decoration-color: var(--text-primary-color);
+
+#theme-light {
+    background-color: var(--primary-color-light);
+    color: var(--secondary-color-light);
 }
 
-#card {
-    background: var(--bg-secondary-gradient-color);
-    text-decoration-color: var(--text-primary-color);
+#theme-dark {
+    background-color: var(--primary-color-dark);
+    color: var(--secondary-color-dark);
+}
+
+#theme-light #card {
+    background-color: var(--secondary-color-light);
+    color: var(--secondary-color-dark);
+}
+
+#theme-dark #card {
+    background-color: var(--primary-color-dark-bis);
 }
