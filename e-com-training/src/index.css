@@ -16,13 +16,14 @@
     --third-color: #fc850d;
 }
 
-
 #theme-light {
+    height: 100vh;
     background-color: var(--primary-color-light);
     color: var(--secondary-color-light);
 }
 
 #theme-dark {
+    height: 100vh;
     background-color: var(--primary-color-dark);
     color: var(--secondary-color-dark);
 }
@@ -35,3 +36,4 @@
 #theme-dark #card {
     background-color: var(--primary-color-dark-bis);
 }
+

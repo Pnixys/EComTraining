@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Card } from './'
 import MockProductService from '../../services/productService/MockProductService'
 import IProductService from '../../services/productService/IProductService';
-import ProductService from '../../services/productService/ProductService';
 
 const Main = () => {
     const _productService: IProductService = new MockProductService();
