@@ -10,13 +10,12 @@ const Card = (product:Product) => {
                 (product.image != null) 
                 ? <img 
                     src={product.image}
-                    alt={product.name}
+                    alt={product.mainInfosProduct.name}
                     className='mt-2'/>
                 : <h2>No image for the moment</h2>
-                
             }
-            <h2 className='text-xl'>{product.name}</h2>
-            <p className='truncate'>{product.description}</p>
+            <h2 className='text-xl'>{product.mainInfosProduct.name}</h2>
+            <p className='truncate'>{product.mainInfosProduct.description}</p>
         </div>
     )
 }

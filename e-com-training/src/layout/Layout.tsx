@@ -1,9 +1,9 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useState } from 'react';
 
-import { logo } from '../assets'
-import Footer from './components/Footer'
+import { logo } from '../assets';
+import Footer from './components/Footer';
 
-import ReactSwitch from 'react-switch'
+import ReactSwitch from 'react-switch';
 
 export const ThemeContext = createContext({});
 
@@ -23,8 +23,8 @@ const Layout = ({children}:any) => {
                             src={logo}
                             alt='logo of the website'
                             className="object-scale-down h-14 w-16"/>
-                        <h1 className='place-self-center p-2'>
-                            Nom du site
+                        <h1 className='place-self-center text-4xl p-2'>
+                            NFT Looker
                         </h1>
                         <ReactSwitch
                                     className='justify-self-end mr-10'
