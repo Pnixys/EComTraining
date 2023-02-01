@@ -7,17 +7,22 @@ type Props = {
     toggleTheme: Function
 }
 
-const Header = ({ theme, toggleTheme }:Props) => {
+// TODO: HEADER IS ACTUALLY USELESS
+
+const Header = ({ theme, toggleTheme }: Props) => {
     return (
-        <div className="grid grid-cols-3 content-center h-16">
+        <div className="grid grid-cols-3 content-center h-16 p-2 mb-5">
             <svg
                 xmlns={logo}
                 height="100px">
             </svg>
-            <h1 className=' text-white place-self-center p-2'>
-                Nom du site
+            <h1 className='place-self-center'>
+                NFT Looker
             </h1>
-            <ReactSwitch onChange={() => toggleTheme} checked={theme === "theme-dark"}/>
+            <div>
+                <ReactSwitch onChange={() => toggleTheme} checked={theme === "theme-dark"} />
+            </div>
+
         </div>
     )
 }

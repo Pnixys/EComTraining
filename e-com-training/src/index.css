@@ -44,3 +44,10 @@
     background-color: var(--primary-color-dark-bis);
 }
 
+#theme-light #footer {
+    background-color: var(--primary-color-light-bis);
+}
+
+#theme-dark #footer {
+    background-color: var(--primary-color-dark-bis);
+}
