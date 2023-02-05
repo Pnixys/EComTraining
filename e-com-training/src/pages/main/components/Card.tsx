@@ -15,10 +15,10 @@ const Card = (product: Product) => {
             }
             <div className='flex flex-col relative text-center'>
                 <h2
-                    className='text-xl translate-x-full opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all'>
+                    className='text-xl opacity-0 group-hover:opacity-100 transition-all'>
                     {product.mainInfosProduct.name}
                 </h2>
-                <p className='text-9xl opacity-0 group-hover:opacity-100'>
+                <p className='text-7xl break-all text-ellipsis opacity-0 group-hover:opacity-100'>
                     {product.mainInfosProduct.price}<span className='text-sm'>JGS</span>
                 </p>
                 <p
