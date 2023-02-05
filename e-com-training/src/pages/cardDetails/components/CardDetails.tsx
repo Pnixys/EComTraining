@@ -1,11 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { LineChart, Line, XAxis, YAxis, ResponsiveContainer } from 'recharts';
 import Product from "../../../Models/Product";
 
 const CardDetails = () => {
     const location = useLocation();
-    const [product, setProduct] = useState(location.state.product as Product);
+    const [product] = useState(location.state.product as Product);
 
     return (
         <div className="grid grid-cols-3">

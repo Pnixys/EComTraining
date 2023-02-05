@@ -3,18 +3,30 @@ import Product from '../../../Models/Product'
 
 const Card = (product: Product) => {
     return (
-        <div id='card' className='rounded-sm opacity-100 h-[18rem] w-[15rem] shadow-lg m-10 
-                   hover:shadow-2xl ease-in-out duration-300 grid justify-items-center'>
+        <div id='card' className='group rounded-sm  h-[18rem] w-[15rem] shadow-lg m-10 
+                   hover:shadow-2xl ease-in-out duration-300 block relative p-5'>
             {
                 (product.image != null)
                     ? <img
                         src={product.image}
                         alt={product.mainInfosProduct.name}
-                        className='mt-2' />
+                        className='absolute inset-0 h-full w-full object-cover transition-opacity group-hover:opacity-50' />
                     : <h2>No image for the moment</h2>
             }
-            <h2 className='text-xl'>{product.mainInfosProduct.name}</h2>
-            <p className='truncate'>{product.mainInfosProduct.description}</p>
+            <div className='flex flex-col relative text-center'>
+                <h2
+                    className='text-xl translate-x-full opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all'>
+                    {product.mainInfosProduct.name}
+                </h2>
+                <p className='text-9xl opacity-0 group-hover:opacity-100'>
+                    {product.mainInfosProduct.price}<span className='text-sm'>JGS</span>
+                </p>
+                <p
+                    className='truncate translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all'>
+                    {product.mainInfosProduct.description}
+                </p>
+            </div>
+
         </div>
     )
 }

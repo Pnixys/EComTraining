@@ -1,25 +1,33 @@
 import React, { createContext, useState } from 'react';
+import { Footer, Header, Login, Signin } from './'
 
-import { logo } from '../assets';
-import Footer from './components/Footer';
-
-import ReactSwitch from 'react-switch';
-import Header from './components/Header';
 
 export const ThemeContext = createContext({});
 
 const Layout = ({ children }: any) => {
-
     const [theme, setTheme] = useState("theme-light");
+    const [showLogin, setShowLogin] = useState(false);
+    const [showSignin, setShowSignin] = useState(false);
 
     const toggleTheme = () => {
         setTheme((currentTheme) => currentTheme === "theme-light" ? "theme-dark" : "theme-light")
     }
 
+
     return (
         <ThemeContext.Provider value={{ theme, toggleTheme }}>
-            <div id={theme} className='flex flex-col h-screen justify-between'>
-                <Header theme={theme} toggleTheme={toggleTheme} />
+            <div
+                id={theme}
+                className='flex flex-col h-screen justify-between'>
+                <Header
+                    theme={theme}
+                    toggleTheme={toggleTheme}
+                    showLogin={showLogin}
+                    setShowLogin={setShowLogin}
+                    showSignin={showSignin}
+                    setShowSignin={setShowSignin} />
+                {showLogin && <Login setShowLogin={setShowLogin} />}
+                {showSignin && <Signin setShowSignin={setShowSignin} />}
                 <div className='mb-auto'>
                     {children}
                 </div>
