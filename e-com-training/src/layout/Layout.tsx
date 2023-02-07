@@ -1,42 +1,39 @@
 import React, { createContext, useState } from 'react';
+import { Footer, Header, Login, Signin } from './'
 
-import { logo } from '../assets';
-import Footer from './components/Footer';
-
-import ReactSwitch from 'react-switch';
 
 export const ThemeContext = createContext({});
 
-const Layout = ({children}:any) => {
-    
+const Layout = ({ children }: any) => {
     const [theme, setTheme] = useState("theme-light");
+    const [showLogin, setShowLogin] = useState(false);
+    const [showSignin, setShowSignin] = useState(false);
 
     const toggleTheme = () => {
         setTheme((currentTheme) => currentTheme === "theme-light" ? "theme-dark" : "theme-light")
     }
 
+
     return (
-            <ThemeContext.Provider value={{ theme, toggleTheme }}>
-                <div id={theme}>
-                    <div className="grid grid-cols-3 content-center h-16">
-                        <img
-                            src={logo}
-                            alt='logo of the website'
-                            className="object-scale-down h-14 w-16"/>
-                        <h1 className='place-self-center text-4xl p-2'>
-                            NFT Looker
-                        </h1>
-                        <ReactSwitch
-                                    className='justify-self-end mr-10'
-                                    onChange={toggleTheme} 
-                                    checked={theme === "theme-dark"}
-                                    onColor='#fc850d'
-                                    offColor='#6f36ba'/>
-                    </div>
+        <ThemeContext.Provider value={{ theme, toggleTheme }}>
+            <div
+                id={theme}
+                className='flex flex-col justify-between'>
+                <Header
+                    theme={theme}
+                    toggleTheme={toggleTheme}
+                    showLogin={showLogin}
+                    setShowLogin={setShowLogin}
+                    showSignin={showSignin}
+                    setShowSignin={setShowSignin} />
+                {showLogin && <Login setShowLogin={setShowLogin} />}
+                {showSignin && <Signin setShowSignin={setShowSignin} />}
+                <div className='mb-auto'>
                     {children}
-                    <Footer />
                 </div>
-            </ThemeContext.Provider>
+                <Footer />
+            </div>
+        </ThemeContext.Provider>
     )
 }
 

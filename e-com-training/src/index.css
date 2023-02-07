@@ -24,13 +24,13 @@
 }
 
 #theme-light {
-    height: 100vh;
+    min-height: 100vh;
     background-color: var(--primary-color-light);
     color: var(--secondary-color-light);
 }
 
 #theme-dark {
-    height: 100vh;
+    min-height: 100vh;
     background-color: var(--primary-color-dark);
     color: var(--secondary-color-dark);
 }
@@ -44,3 +44,10 @@
     background-color: var(--primary-color-dark-bis);
 }
 
+#theme-light #footer {
+    background-color: var(--primary-color-light-bis);
+}
+
+#theme-dark #footer {
+    background-color: var(--primary-color-dark-bis);
+}
