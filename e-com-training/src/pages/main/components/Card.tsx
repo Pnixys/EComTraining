@@ -22,7 +22,7 @@ const Card = (product: Product) => {
                     {product.mainInfosProduct.price}<span className='text-sm'>JGS</span>
                 </p>
                 <p
-                    className='truncate translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all'>
+                    className='break-all translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all'>
                     {product.mainInfosProduct.description}
                 </p>
             </div>

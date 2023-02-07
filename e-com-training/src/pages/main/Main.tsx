@@ -8,7 +8,7 @@ const Main = () => {
     const _productService: IProductService = new MockProductService();
     const [allProducts] = useState(_productService.getProducts());
     return (
-        <div className='grid grid-cols-1 place-content-center md:grid-cols-3 lg:grid-cols-5'>
+        <div className='grid grid-cols-1 justify-items-center md:grid-cols-3 lg:grid-cols-5'>
             {allProducts.map((product) => (
                 <Link key={product.mainInfosProduct.id}
                     to={`productDetails/${product.mainInfosProduct.id}`}

@@ -18,7 +18,7 @@ const Layout = ({ children }: any) => {
         <ThemeContext.Provider value={{ theme, toggleTheme }}>
             <div
                 id={theme}
-                className='flex flex-col h-screen justify-between'>
+                className='flex flex-col justify-between'>
                 <Header
                     theme={theme}
                     toggleTheme={toggleTheme}

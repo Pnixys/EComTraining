@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
-import UserService from '../../services/productService/UserService';
-import IUserService from '../../services/productService/IUserService';
+import UserService from '../../services/userService/UserService';
+import IUserService from '../../services/userService/IUserService';
+import { useDispatch } from 'react-redux';
+import { logIn } from '../../app/user/userSlice';
+import User from '../../Models/User';
 
 const Signin = ({ setShowSignin }: any) => {
     const _userService: IUserService = new UserService();
@@ -9,14 +12,31 @@ const Signin = ({ setShowSignin }: any) => {
     const [passwordConfirm, setPasswordConfirm] = useState('');
     const [email, setEmail] = useState('');
 
-    const connectUser = () => {
+    const dispatch = useDispatch();
 
+    const connectUser = () => {
+        const newUserId = _userService.addUser(username, password, email);
+        const newUser: User | undefined = _userService.getUserById(newUserId);
+        console.log(newUserId);
+
+        dispatch(logIn(newUser));
     }
 
     const handleKeyDown = (event: React.KeyboardEvent) => {
         if (event.key === 'Enter') {
             connectUser();
         }
+    }
+
+    const canSubmit = () => {
+        const tmp = username.length !== 0 &&
+            password.length !== 0 &&
+            passwordConfirm.length !== 0 &&
+            email.length !== 0 &&
+            password === passwordConfirm;
+        console.log(tmp);
+        return !tmp;
+
     }
 
     return (
@@ -35,26 +55,41 @@ const Signin = ({ setShowSignin }: any) => {
                             <div className='flex flex-col justify-center'>
                                 <h3>Name</h3>
                                 <input
+                                    required
+                                    minLength={3}
                                     type="text"
+                                    value={username}
+                                    onChange={(e) => setUsername(e.target.value)}
                                     className='border border-slate-500 rounded-lg p-1 focus:outline-purple-400' />
                             </div>
                             <div className='flex flex-col justify-center'>
                                 <h3>Email</h3>
                                 <input
+                                    required
                                     type="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
                                     className='border border-slate-500 rounded-lg p-1 focus:outline-purple-400' />
                             </div>
                             <div className='flex flex-col justify-center'>
                                 <h3>Password</h3>
                                 <input
+                                    required
                                     type="password"
-                                    className='border border-slate-500 rounded-lg p-1 focus:outline-purple-400' />
+                                    minLength={5}
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    className='border border-slate-500 rounded-lg p-1 focus:outline-purple-400 required:outline-red-600' />
                             </div>
                             <div className='flex flex-col justify-center'>
                                 <h3>Confirm Password</h3>
                                 <input
+                                    required
                                     type="password"
-                                    className='border border-slate-500 rounded-lg p-1 focus:outline-purple-400' />
+                                    minLength={5}
+                                    value={passwordConfirm}
+                                    onChange={(e) => setPasswordConfirm(e.target.value)}
+                                    className='border border-slate-500 rounded-lg p-1 focus:outline-purple-400 invalid:outline-red-600' />
                             </div>
                         </div>
                         <div className='flex gap-2 justify-end'>
@@ -62,7 +97,8 @@ const Signin = ({ setShowSignin }: any) => {
                             <input
                                 value="Sign In"
                                 type="submit"
-                                className='border rounded-md bg-purple-500  text-white p-2 hover:bg-purple-700'
+                                className='border rounded-md bg-purple-500  text-white p-2 hover:bg-purple-700 disabled:bg-slate-600'
+                                disabled={canSubmit()}
                                 onClick={connectUser} />
                         </div>
                     </div>

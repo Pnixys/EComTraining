@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { logIn } from '../../app/user/userSlice'
-import IUserService from '../../services/productService/IUserService';
-import UserService from '../../services/productService/UserService';
+import IUserService from '../../services/userService/IUserService';
+import UserService from '../../services/userService/UserService';
 import { useDispatch } from 'react-redux';
 import User from '../../Models/User';
 
@@ -17,7 +17,7 @@ const Login = ({ setShowLogin }: any) => {
             const userId = _userService.verifyUserAndPassword(userName, password);
 
             if (userId !== -1) {
-                const user: User | undefined = _userService.getUsersById(userId);
+                const user: User | undefined = _userService.getUserById(userId);
                 dispatch(logIn(user));
                 setShowLogin(false);
             }
