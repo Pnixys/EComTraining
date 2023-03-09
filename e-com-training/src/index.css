@@ -20,6 +20,12 @@
     --secondary-color-dark-bis: #dacceb;
 
     --third-color: #fc850d;
+
+    --button-border-gradient-color-light: linear-gradient(to right, #2398ca, #6f36ba);
+    --button-border-gradient-color-light-animation: linear-gradient(to right, #6f36ba, #2398ca);
+
+    --button-border-gradient-color-dark: linear-gradient(to right, #36ba3d, #2398ca);
+    --button-border-gradient-color-dark-animation: linear-gradient(to right, #2398ca, #36ba3d);
     font-family: "Righteous";
 }
 
@@ -50,4 +56,16 @@
 
 #theme-dark #footer {
     background-color: var(--primary-color-dark-bis);
+}
+
+#buy-button {
+    border: solid;
+    background-color: var(--third-color);
+    border-radius: 10px 100px / 120px;
+    transition-property: all;
+    transition-duration: 500ms;
+}
+
+#buy-button:hover {
+    border-radius: 100px 10px / 120px;
 }

@@ -1,9 +1,9 @@
 import React from 'react'
 import { LineChart, Line, XAxis, YAxis, ResponsiveContainer } from 'recharts';
-import Product from "../../../Models/Product";
+import ProductGraph from "../../../Models/ProductGraph";
 
 const Chart = (props: {
-    product: Product,
+    product: ProductGraph,
     width: string | number | undefined
 }) => {
     return (

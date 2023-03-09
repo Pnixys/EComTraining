@@ -1,7 +1,7 @@
-import MainInfosProduct from "./MainInfosProduct"
-
 export default interface Product {
-    mainInfosProduct: MainInfosProduct,
-    image: string,
-    priceHistory: Array<{"date": Date, "price": number}>
-} 
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  image: string;
+}

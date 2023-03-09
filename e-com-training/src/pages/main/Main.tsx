@@ -10,8 +10,8 @@ const Main = () => {
     return (
         <div className='grid grid-cols-1 justify-items-center md:grid-cols-3 lg:grid-cols-5'>
             {allProducts.map((product) => (
-                <Link key={product.mainInfosProduct.id}
-                    to={`productDetails/${product.mainInfosProduct.id}`}
+                <Link key={product.id}
+                    to={`productDetails/${product.id}`}
                     state={{ product: product }}>
                     <Card {...product} />
                 </Link>
