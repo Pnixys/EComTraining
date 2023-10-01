@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: "Righteous";
+    src: local("Righteous"),
+        url("./assets/fonts/Righteous-Regular.ttf") format("truetype");
+}
+
 :root {
     --primary-color-light: #ffffff;
     --primary-color-light-bis: #dacceb;
@@ -14,15 +20,23 @@
     --secondary-color-dark-bis: #dacceb;
 
     --third-color: #fc850d;
+
+    --button-border-gradient-color-light: linear-gradient(to right, #2398ca, #6f36ba);
+    --button-border-gradient-color-light-animation: linear-gradient(to right, #6f36ba, #2398ca);
+
+    --button-border-gradient-color-dark: linear-gradient(to right, #36ba3d, #2398ca);
+    --button-border-gradient-color-dark-animation: linear-gradient(to right, #2398ca, #36ba3d);
+    font-family: "Righteous";
 }
 
-
 #theme-light {
+    min-height: 100vh;
     background-color: var(--primary-color-light);
     color: var(--secondary-color-light);
 }
 
 #theme-dark {
+    min-height: 100vh;
     background-color: var(--primary-color-dark);
     color: var(--secondary-color-dark);
 }
@@ -34,4 +48,24 @@
 
 #theme-dark #card {
     background-color: var(--primary-color-dark-bis);
+}
+
+#theme-light #footer {
+    background-color: var(--primary-color-light-bis);
+}
+
+#theme-dark #footer {
+    background-color: var(--primary-color-dark-bis);
+}
+
+#buy-button {
+    border: solid;
+    background-color: var(--third-color);
+    border-radius: 10px 100px / 120px;
+    transition-property: all;
+    transition-duration: 500ms;
+}
+
+#buy-button:hover {
+    border-radius: 100px 10px / 120px;
 }
