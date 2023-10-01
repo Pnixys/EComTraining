@@ -24,7 +24,7 @@ const CardDetails = () => {
     const dispatch = useDispatch();
 
     const buyProduct = () => {
-        console.log(IsNotNullOrUndefined(user), user.user)
+        console.log(IsNotNullOrUndefined(user), user)
         if (IsNotNullOrUndefined(user)) {
             Guard.IsNotNull(product, "Product is null");
             dispatch(addProduct(product));
